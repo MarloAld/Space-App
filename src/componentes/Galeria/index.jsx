@@ -19,7 +19,7 @@ const ImgContainer = styled.section`
     gap: 24px;
 `
 
-const Galeria = ({fotos = []}) => { 
+const Galeria = ({ fotos = [], aoFotoSelecionada }) => { 
     return (
         <>
             <Tags />
@@ -28,7 +28,11 @@ const Galeria = ({fotos = []}) => {
                 <SecaoFluida>
                     <Titulo>Navegue pela galeria</Titulo>
                     <ImgContainer>
-                        {fotos.map(foto => <Imagem foto={foto}/>)}
+                        {fotos.map(foto => <Imagem
+                            aoZoomSolicitado={aoFotoSelecionada} 
+                            key={foto.id}
+                            foto={foto}/>)
+                        }
                     </ImgContainer>
                 </SecaoFluida>
                 <Populares/>
