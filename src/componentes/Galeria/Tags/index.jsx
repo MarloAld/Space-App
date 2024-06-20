@@ -31,15 +31,21 @@ const TagsContainer = styled.div`
     margin-bottom: 13px;
 `
 
-const Tags = () => {
+const Div = styled.div`
+    display: flex;
+    gap: 24px;
+    justify-content: end;
+`
+
+const Tags = ({ setTag }) => {
     return <>
         <TagsContainer>
         <SubTituloEstilizado>Busque por tags:</SubTituloEstilizado>
-            {tags.map(tag => <TagsEstilizadas key={tag.id}>{tag.titulo}</TagsEstilizadas>)}
+            <Div>
+                {tags.map(tag => <TagsEstilizadas key={tag.id} onClick={() => setTag(tag.tag)}>{tag.titulo}</TagsEstilizadas>)}
+            </Div>
         </TagsContainer>
     </>
 }
 
 export default Tags
-
-{/* <button key={tag.id}>{tag.titulo}</button> */}
